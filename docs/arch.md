@@ -18,9 +18,11 @@ Define the high-level architecture for the API-HUB project — covering system c
 | *Real-Time Layer* | WebSocket | Used for live analytics updates on dashboard. |
 | *Monitoring* | Sentry / Health endpoint | Tracks uptime and error metrics. |
 
+![image](./arch%20image.png)
+
 ---
 
-## Data Flow (Simplified)
+## Simplified Data Flow
 
 1. Consumer requests API using API Key.  
 2. Gateway validates key, checks Redis rate limit.  
