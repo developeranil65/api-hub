@@ -63,6 +63,11 @@ An API Marketplace platform where developers can *publish, subscribe, and consum
 
 ---
 
+## Architecture Diagram (summary)
+
+![image](./arch%20image.png)
+---
+
 ## Deliverables (Week 1 Focus)
 - Architecture doc + ERD
 - Backend & frontend scaffolds
