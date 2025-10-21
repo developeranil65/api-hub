@@ -1,0 +1,28 @@
+# Node
+node_modules
+npm-debug.log
+.env
+.env.*
+dist
+build
+coverage
+
+# Next.js
+.next/
+out/
+.vercel/
+*.local
+
+# Docker
+*.pid
+*.log
+*.db
+docker-compose.override.yml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+.vscode/
