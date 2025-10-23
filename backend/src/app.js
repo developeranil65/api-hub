@@ -20,8 +20,10 @@ app.use(express.static("public"));
 app.use(cookieParser());
 
 // routes import
+import health from "./routes/health.route.js"
 
 // routes declaration
+app.use("/api/health", health);
 
 // Exporting the app to server.js
 export {app};
