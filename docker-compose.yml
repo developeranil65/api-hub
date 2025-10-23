@@ -1,0 +1,54 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15
+    container_name: api_marketplace_db
+    restart: always
+    environment:
+      POSTGRES_USER: anil
+      POSTGRES_PASSWORD: anil123
+      POSTGRES_DB: api_marketplace
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7
+    container_name: api_marketplace_redis
+    restart: always
+    ports:
+      - "6379:6379"
+
+  backend:
+    build:
+      context: ./backend
+    container_name: api_marketplace_backend
+    restart: always
+    env_file:
+      - .env
+    depends_on:
+      - db
+      - redis
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app
+    command: sh -c "npm install && npm run dev"
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: api_marketplace_frontend
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+    command: sh -c "npm install && npm run dev"
+
+volumes:
+  db_data:
